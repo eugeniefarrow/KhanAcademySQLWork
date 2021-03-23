@@ -1,0 +1,35 @@
+-- Create a table to sell books
+-- Columns are id, title, pages, year, publisher, rating
+-- Note use of AUTOINCREMENT
+CREATE TABLE books(
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+title TEXT,
+pages INTEGER, year INTEGER, pub TEXT, rate INTEGER);
+
+
+-- Insert items into book table 
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Fundamentals of Java",700, 2016, "Cengage", 4);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Introduction to Java Programming, Brief Version", 823, 2017, "Pearson", 3);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Introduction to Java Programming", 823, 2017, "Pearson", 3);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Introduction to Python Programming and Data Structures", 853, 2017, "Pearson", 3);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Head First Java", 704, 2019, "O'Reily Media", 5);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Head First JavaScript", 639, 2019, "O'Reily Media", 5);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Head First HTML", 704, 2019, "O'Reily Media", 5);
+INSERT INTO books(title, pages, year, pub, rate) VALUES ("Head First SQL", 493, 2007, "O'Reily Media", 5);
+
+/* Display all items in the books table */
+
+SELECT * FROM books;
+
+/* Display only the name column in the books table */
+SELECT title
+FROM books
+GROUP BY title;
+
+/* Use the SUM aggregate function to find the total cost of all books in the books table  */
+SELECT SUM(pages) FROM books;
+
+--Use the aggregate function MIN to display items by the lowest publication year
+
+SELECT title, MIN(year) FROM books GROUP BY year;
+
